@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=402, initial-scale=1.0">
+  <title>Undangan Isyatir</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      background: #63d4fb;
+    }
+
+    body {
+      min-width: 402px;
+      overflow-x: hidden;
+    }
+
+    .website {
+      width: 402px;
+      margin: 0 auto;
+      background: #63d4fb;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* =====================================================
+       SECTION 1
+    ===================================================== */
+
+    .section-1 {
+      width: 402px;
+      height: 205px;
+      padding-top: 24px;
+      overflow: hidden;
+      position: relative;
+      z-index: 5;
+    }
+
+    .section-1 img {
+      display: block;
+      width: 402px;
+      height: 181px;
+      object-fit: contain;
+    }
+
+    /* =====================================================
+       SECTION 2
+    ===================================================== */
+
+    .section-2 {
+      width: 402px;
+      margin-top: -24px;
+      overflow: hidden;
+      position: relative;
+      z-index: 5;
+    }
+
+    .section-2 img {
+      display: block;
+      width: 402px;
+      height: 112px;
+      object-fit: contain;
+    }
+
+    /* =====================================================
+       ROAD WRAPPER
+    ===================================================== */
+
+    .road-wrapper {
+      position: relative;
+      width: 402px;
+      height: 839px;
+      margin-top: 5px;
+    }
+
+    /* =====================================================
+       SECTION 5
+    ===================================================== */
+
+    .section-5 {
+      position: absolute;
+      top: 230px;
+      left: 0;
+      width: 402px;
+      z-index: 1;
+    }
+
+    .section-5 img {
+      display: block;
+      width: 402px;
+      height: auto;
+    }
+
+    /* =====================================================
+       SECTION 3
+    ===================================================== */
+
+    .section-3 {
+      position: absolute;
+      top: 0;
+      left: 9px;
+      width: 402px;
+      z-index: 2;
+    }
+
+    .section-3 img {
+      display: block;
+      width: 402px;
+      height: auto;
+    }
+
+    /* =====================================================
+       SECTION 4
+    ===================================================== */
+
+    .section-4 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 402px;
+      z-index: 3;
+    }
+
+    .section-4 img {
+      display: block;
+      width: 402px;
+      height: auto;
+    }
+
+    /* =====================================================
+       SECTION 6
+    ===================================================== */
+
+    .section-6 {
+      width: 402px;
+      margin-top: 24px;
+      position: relative;
+      z-index: 4;
+      overflow: hidden;
+    }
+
+    .section-6 img {
+      display: block;
+      width: 402px;
+      height: auto;
+    }
+
+    /* =====================================================
+   SECTION 7 - RSVP + WISH
+===================================================== */
+
+.section-7 {
+  width: 402px;
+  padding: 28px 19px 45px;
+  position: relative;
+  background: #63d4fb;
+}
+
+
+/* =====================================================
+   FORM UTAMA
+===================================================== */
+
+.rsvp-box {
+  width: 360px;
+  padding: 18px 27px 22px;
+
+  border-radius: 15px;
+
+  background: linear-gradient(
+    180deg,
+    #ffad00 0%,
+    #f99b00 100%
+  );
+
+  box-shadow:
+    inset -1px 2px 8px rgba(255, 239, 185, 0.95),
+    inset 6px -16px 8px rgba(194, 103, 0, 0.38);
+
+  position: relative;
+}
+
+
+/* =====================================================
+   JUDUL
+===================================================== */
+
+.rsvp-title {
+  position: relative;
+
+  width: 324px;
+
+  margin-left: -9px;
+  margin-top: -34px;
+  margin-bottom: 7px;
+
+  padding: 6px 12px 7px;
+
+  border-radius: 22px;
+
+  background: linear-gradient(
+    180deg,
+    #2879ed 0%,
+    #0756d5 100%
+  );
+
+  color: #fff6d5;
+
+  text-align: center;
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 19px;
+  font-weight: 900;
+
+  box-shadow:
+    inset -1px 2px 8px rgba(142, 202, 255, .75),
+    inset 6px -10px 8px rgba(0, 50, 150, .38),
+    0 3px 5px rgba(0, 74, 150, .25);
+
+  transform: rotate(-1deg);
+}
+
+
+.rsvp-subtitle {
+  text-align: center;
+
+  color: #fff5ce;
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  margin-bottom: 10px;
+
+  line-height: 1.25;
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.rsvp-label {
+  display: block;
+
+  color: #57350d;
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+
+  margin: 7px 0 5px;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.rsvp-input,
+.rsvp-textarea {
+
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: #fff6e1;
+
+  border-radius: 12px;
+
+  color: #59452e;
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+
+  box-shadow:
+    inset -1px 2px 8px rgba(255, 255, 255, .95),
+    inset 6px -8px 8px rgba(211, 178, 115, .22),
+    0 1px 2px rgba(190, 105, 0, .18);
+}
+
+
+.rsvp-input {
+  height: 49px;
+  padding: 0 16px;
+}
+
+
+.rsvp-textarea {
+  height: 86px;
+
+  padding: 13px 16px;
+
+  resize: none;
+
+  line-height: 1.35;
+}
+
+
+.rsvp-input::placeholder,
+.rsvp-textarea::placeholder {
+  color: #a6967e;
+  opacity: 1;
+}
+
+
+.rsvp-input:focus,
+.rsvp-textarea:focus {
+
+  box-shadow:
+    inset -1px 2px 8px rgba(255, 255, 255, 1),
+    inset 6px -8px 8px rgba(211, 178, 115, .25),
+    0 0 0 2px rgba(255, 207, 50, .55);
+}
+
+
+/* =====================================================
+   AREA JUMLAH TAMU + DATENG KAN
+===================================================== */
+
+.attendance-row {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 2px;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  transition:
+    gap .35s ease;
+}
+
+
+/* =====================================================
+   JUMLAH TAMU
+
+   AWAL:
+   width = 0
+   opacity = 0
+
+   SETELAH PASTI:
+   muncul di kiri
+===================================================== */
+
+.guest-count {
+
+  width: 0;
+  max-height: 0px;
+
+  flex-shrink: 0;
+
+  opacity: 0;
+
+  overflow: hidden;
+
+  transform: translateX(-18px);
+
+  transition:
+    width .4s cubic-bezier(.25,.8,.25,1),
+    height .4s cubic-bezier(.25,.8,.25,1),
+    opacity .25s ease,
+    transform .4s cubic-bezier(.25,.8,.25,1);
+}
+
+
+/* =====================================================
+   SAAT PASTI DIPILIH
+===================================================== */
+
+.attendance-row.show-count {
+
+  gap: 13px;
+}
+
+
+.attendance-row.show-count .guest-count {
+
+  width: 147px;
+  max-height: 79px;
+  opacity: 1;
+
+  transform: translateX(0);
+}
+
+
+/* =====================================================
+   AREA DATANG KAN
+===================================================== */
+
+.attendance-area {
+
+  flex: 1;
+
+  min-width: 0;
+
+  transition:
+    transform .4s cubic-bezier(.25,.8,.25,1);
+}
+
+
+/*
+   Ketika jumlah tamu muncul,
+   area dateng kan otomatis terdorong
+   ke kanan karena flex layout.
+*/
+
+.attendance-row.show-count .attendance-area {
+  transform: translateX(0);
+}
+
+
+/* =====================================================
+   BUTTON KEHADIRAN
+===================================================== */
+
+.attendance-buttons {
+
+  display: flex;
+
+  gap: 8px;
+
+  width: 100%;
+}
+
+
+.attendance-btn {
+
+  height: 49px;
+
+  flex: 1;
+
+  border: none;
+
+  border-radius: 12px;
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+
+  color: #5a4425;
+
+  background: #fff5df;
+
+  cursor: pointer;
+
+  box-shadow:
+    inset -1px 2px 8px rgba(255, 255, 255, .95),
+    inset 5px -7px 8px rgba(205, 169, 105, .25),
+    0 1px 2px rgba(190, 105, 0, .2);
+
+  transition:
+    transform .15s ease,
+    background .2s ease,
+    box-shadow .2s ease;
+}
+
+
+.attendance-btn:active {
+  transform: scale(.96);
+}
+
+
+/* PASTI AKTIF */
+
+.attendance-btn.active {
+
+  background: #ffdb28;
+
+  box-shadow:
+    inset -1px 2px 8px rgba(255, 246, 150, .95),
+    inset 5px -7px 8px rgba(210, 155, 0, .3),
+    0 1px 2px rgba(190, 105, 0, .2);
+}
+
+
+/* =====================================================
+   WISH
+===================================================== */
+
+.wish-label {
+  margin-top: 12px;
+}
+
+
+/* =====================================================
+   SEND BUTTON
+===================================================== */
+
+.send-rsvp {
+
+  width: 100%;
+  height: 57px;
+
+  margin-top: 17px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  background: linear-gradient(
+    180deg,
+    #a5ff25 0%,
+    #8cec0b 100%
+  );
+
+  color: #563e32;
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow:
+    inset -1px 2px 8px rgba(224, 255, 147, .95),
+    inset 6px -10px 8px rgba(73, 174, 0, .30),
+    0 3px 4px rgba(176, 98, 0, .2);
+
+  transition:
+    transform .15s ease,
+    filter .15s ease;
+}
+
+
+.send-rsvp:active {
+  transform: scale(.97);
+}
+
+
+.send-rsvp:hover {
+  filter: brightness(1.03);
+}
+
+
+/* =====================================================
+   WISH LIST
+===================================================== */
+
+.wishes-section {
+  width: 100%;
+
+  margin-top: 29px;
+  text-align: center;
+}
+
+
+.wishes-title {
+  width: 100%;
+  text-align: center;
+
+  color: #fff7d8;
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 21px;
+  font-weight: 900;
+
+  text-shadow:
+    1px 2px 0 rgba(53, 135, 175, .45);
+}
+
+
+.wishes-subtitle {
+  width: 100%;
+  text-align: center;
+
+  margin-top: 3px;
+
+  color: #247fa9;
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+.wishes-scroll {
+
+  display: flex;
+
+  gap: 12px;
+
+  width: 100%;
+
+  margin-top: 14px;
+
+  padding: 5px 19px 15px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+}
+
+
+.wishes-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+
+.wish-card {
+
+  flex: 0 0 285px;
+
+  min-height: 145px;
+
+  padding: 17px 18px;
+
+  border-radius: 17px;
+
+  background: linear-gradient(
+    180deg,
+    #fff7e4 0%,
+    #ffedc8 100%
+  );
+
+  scroll-snap-align: center;
+
+  box-shadow:
+    inset -1px 2px 8px rgba(255, 255, 255, .95),
+    inset 6px -13px 8px rgba(211, 169, 99, .25),
+    0 4px 8px rgba(47, 133, 166, .20);
+
+  position: relative;
+}
+
+
+.wish-card::before {
+
+  content: "♥";
+
+  position: absolute;
+
+  top: 11px;
+  right: 14px;
+
+  color: #ffb900;
+
+  font-size: 17px;
+}
+
+
+.wish-name {
+
+  color: #176ea0;
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+
+  padding-right: 25px;
+}
+
+
+.wish-attendance {
+
+  display: inline-block;
+
+  margin-top: 5px;
+
+  padding: 3px 9px;
+
+  border-radius: 10px;
+
+  background: #ffd92b;
+
+  color: #66501e;
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+}
+
+
+.wish-message {
+
+  margin-top: 11px;
+
+  color: #66543d;
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  line-height: 1.45;
+
+  word-break: break-word;
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty-wishes {
+
+  width: 320px;
+
+  margin: 14px auto 0;
+
+  padding: 18px;
+
+  border-radius: 15px;
+
+  background: rgba(255, 247, 224, .75);
+
+  color: #7b633f;
+
+  text-align: center;
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  box-shadow:
+    inset -1px 2px 8px rgba(255, 255, 255, .8),
+    inset 5px -8px 8px rgba(192, 143, 74, .18);
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.rsvp-toast {
+
+  position: fixed;
+
+  left: 50%;
+  bottom: 22px;
+
+  width: 310px;
+
+  padding: 12px 16px;
+
+  border-radius: 18px;
+
+  background: #246ed9;
+
+  color: #fff;
+
+  text-align: center;
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+
+  box-shadow:
+    0 5px 15px rgba(0, 65, 140, .3);
+
+  transform:
+    translate(-50%, 100px);
+
+  opacity: 0;
+
+  transition:
+    transform .3s ease,
+    opacity .3s ease;
+
+  z-index: 999;
+}
+
+
+.rsvp-toast.show {
+
+  transform:
+    translate(-50%, 0);
+
+  opacity: 1;
+}
+  </style>
+</head>
+
+<body>
+
+  <main class="website">
+
+    <!-- SECTION 1 -->
+    <section class="section-1">
+      <img src="section-1.gif" alt="Halo! Aku Isyatir">
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section-2">
+      <img src="section-2.gif" alt="Datang yuk ke ulang tahun ku">
+    </section>
+
+    <!-- ROAD -->
+    <div class="road-wrapper">
+
+      <section class="section-5">
+        <img src="section-5.gif" alt="Jalanan dan Foto Isyatir">
+      </section>
+
+      <section class="section-3">
+        <img src="section-3.gif" alt="Yang ke 3 tahun">
+      </section>
+
+      <section class="section-4">
+        <img src="section-4.svg" alt="Perjalanan Isyatir">
+      </section>
+
+    </div>
+
+    <!-- SECTION 6 -->
+    <section class="section-6">
+      <img src="section-6.gif" alt="Informasi acara">
+    </section>
+
+
+    <!-- =================================================
+         SECTION 7
+         RSVP + WISH
+    ================================================== -->
+
+    <section class="section-7">
+
+  <div class="rsvp-box">
+
+    <div class="rsvp-title">
+      Yuk konfirmasi kehadiranmu
+    </div>
+
+    <div class="rsvp-subtitle">
+      Yuk isi form tamu ini sebelum tanggal 31 Mei
+    </div>
+
+
+    <!-- NAMA -->
+
+    <label class="rsvp-label">
+      Nama kamu
+    </label>
+
+    <input
+      id="guestName"
+      class="rsvp-input"
+      type="text"
+      placeholder="cth: Kaka Iya"
+      maxlength="40"
+    >
+
+
+    <!-- JUMLAH TAMU + KEHADIRAN -->
+
+    <div
+      id="attendanceRow"
+      class="attendance-row"
+    >
+
+      <!-- JUMLAH TAMU -->
+      <div class="guest-count">
+
+        <label class="rsvp-label">
+          Jumlah tamu
+        </label>
+
+        <input
+          id="guestCount"
+          class="rsvp-input"
+          type="number"
+          value="1"
+          min="1"
+          max="20"
+        >
+
+      </div>
+
+
+      <!-- DATENG KAN -->
+      <div class="attendance-area">
+
+        <label class="rsvp-label">
+          dateng kan?
+        </label>
+
+        <div class="attendance-buttons">
+
+          <button
+            type="button"
+            class="attendance-btn"
+            data-value="Pasti!"
+          >
+            Pasti!
+          </button>
+
+          <button
+            type="button"
+            class="attendance-btn"
+            data-value="Maaf"
+          >
+            Maaf
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- WISH -->
+
+    <label class="rsvp-label wish-label">
+      Tulis wish buat Isyatir 💌
+    </label>
+
+    <textarea
+      id="guestWish"
+      class="rsvp-textarea"
+      placeholder="Tulis doa dan ucapan untuk Isyatir..."
+      maxlength="250"
+    ></textarea>
+
+
+    <!-- SEND -->
+
+    <button
+      id="sendRsvp"
+      class="send-rsvp"
+      type="button"
+    >
+      Kirim
+    </button>
+
+  </div>
+
+
+  <!-- DAFTAR WISH -->
+
+  <div class="wishes-section">
+
+    <div class="wishes-title">
+      Wishes for Isyatir 💛
+    </div>
+
+    <div class="wishes-subtitle">
+      Geser untuk membaca ucapan dari teman-teman
+    </div>
+
+    <div
+      id="wishesScroll"
+      class="wishes-scroll"
+    ></div>
+
+  </div>
+
+</section>
+
+
+<div
+  id="rsvpToast"
+  class="rsvp-toast"
+></div>
+
+  </main>
+
+
+  <!-- TOAST -->
+  <div
+    id="rsvpToast"
+    class="rsvp-toast"
+  ></div>
+
+
+  <script>
+
+  /* =====================================================
+     STORAGE
+  ===================================================== */
+
+  const STORAGE_KEY = "isyatir_rsvp_wishes";
+
+
+  /* =====================================================
+     STATE
+  ===================================================== */
+
+  let selectedAttendance = "";
+
+
+  /* =====================================================
+     ELEMENT
+  ===================================================== */
+
+  const guestName =
+    document.getElementById("guestName");
+
+  const guestCount =
+    document.getElementById("guestCount");
+
+  const guestWish =
+    document.getElementById("guestWish");
+
+  const attendanceRow =
+    document.getElementById("attendanceRow");
+
+  const sendRsvp =
+    document.getElementById("sendRsvp");
+
+  const wishesScroll =
+    document.getElementById("wishesScroll");
+
+  const rsvpToast =
+    document.getElementById("rsvpToast");
+
+  const attendanceButtons =
+    document.querySelectorAll(".attendance-btn");
+
+
+  /* =====================================================
+     PILIH PASTI / MAAF
+  ===================================================== */
+
+  attendanceButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      selectedAttendance =
+        button.dataset.value;
+
+
+      /* Hapus active dari semuanya */
+
+      attendanceButtons.forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+
+      /* Aktifkan pilihan */
+
+      button.classList.add("active");
+
+
+      /*
+        Kalau PASTI:
+        tampilkan jumlah tamu
+      */
+
+      if (selectedAttendance === "Pasti!") {
+
+        attendanceRow.classList.add(
+          "show-count"
+        );
+
+      }
+
+
+      /*
+        Kalau MAAF:
+        sembunyikan jumlah tamu lagi
+      */
+
+      else {
+
+        attendanceRow.classList.remove(
+          "show-count"
+        );
+
+      }
+
+    });
+
+  });
+
+
+  /* =====================================================
+     TOAST
+  ===================================================== */
+
+  function showToast(message) {
+
+    rsvpToast.textContent = message;
+
+    rsvpToast.classList.add("show");
+
+    setTimeout(() => {
+
+      rsvpToast.classList.remove("show");
+
+    }, 2500);
+
+  }
+
+
+  /* =====================================================
+     GET DATA
+  ===================================================== */
+
+  function getWishes() {
+
+    try {
+
+      const data =
+        localStorage.getItem(STORAGE_KEY);
+
+      if (!data) {
+        return [];
+      }
+
+      return JSON.parse(data);
+
+    } catch (error) {
+
+      console.error(error);
+
+      return [];
+
+    }
+
+  }
+
+
+  /* =====================================================
+     SAVE DATA
+  ===================================================== */
+
+  function saveWishes(data) {
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(data)
+    );
+
+  }
+
+
+  /* =====================================================
+     ESCAPE HTML
+  ===================================================== */
+
+  function escapeHTML(text) {
+
+    return String(text)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+
+  }
+
+
+  /* =====================================================
+     RENDER WISH
+  ===================================================== */
+
+  function renderWishes() {
+
+    const wishes =
+      getWishes();
+
+    wishesScroll.innerHTML = "";
+
+
+    if (wishes.length === 0) {
+
+      wishesScroll.innerHTML = `
+
+        <div class="empty-wishes">
+
+          Belum ada ucapan nih 💌<br>
+
+          Jadilah yang pertama mengirim
+          wish untuk Isyatir!
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    wishes
+      .slice()
+      .reverse()
+      .forEach(wish => {
+
+        const card =
+          document.createElement("div");
+
+        card.className =
+          "wish-card";
+
+
+        card.innerHTML = `
+
+          <div class="wish-name">
+            ${escapeHTML(wish.name)}
+          </div>
+
+          ${
+            wish.attendance === "Pasti!"
+              ? `
+                <div class="wish-attendance">
+                  ${escapeHTML(wish.count)} tamu
+                </div>
+              `
+              : `
+                <div class="wish-attendance">
+                  Tidak hadir
+                </div>
+              `
+          }
+
+          <div class="wish-message">
+            ${escapeHTML(wish.message)}
+          </div>
+
+        `;
+
+
+        wishesScroll.appendChild(card);
+
+      });
+
+  }
+
+
+  /* =====================================================
+     SUBMIT
+  ===================================================== */
+
+  sendRsvp.addEventListener("click", () => {
+
+    const name =
+      guestName.value.trim();
+
+    const message =
+      guestWish.value.trim();
+
+
+    /* Nama wajib */
+
+    if (!name) {
+
+      showToast(
+        "Isi nama kamu dulu yaa 💛"
+      );
+
+      guestName.focus();
+
+      return;
+
+    }
+
+
+    /* Kehadiran wajib dipilih */
+
+    if (!selectedAttendance) {
+
+      showToast(
+        "Pilih dulu kamu dateng atau tidak yaa 💛"
+      );
+
+      return;
+
+    }
+
+
+    /* Wish wajib */
+
+    if (!message) {
+
+      showToast(
+        "Tulis wish untuk Isyatir dulu 💌"
+      );
+
+      guestWish.focus();
+
+      return;
+
+    }
+
+
+    /*
+      Kalau Pasti → gunakan jumlah tamu
+      Kalau Maaf → jumlah tamu = 0
+    */
+
+    const count =
+      selectedAttendance === "Pasti!"
+        ? parseInt(guestCount.value) || 1
+        : 0;
+
+
+    /* Data */
+
+    const newWish = {
+
+      id: Date.now(),
+
+      name: name,
+
+      count: count,
+
+      attendance:
+        selectedAttendance,
+
+      message: message
+
+    };
+
+
+    /* Ambil data */
+
+    const wishes =
+      getWishes();
+
+
+    /* Tambahkan */
+
+    wishes.push(newWish);
+
+
+    /* Simpan */
+saveWishes(wishes);
+
+/* Render wish terbaru */
+renderWishes();
+
+/* Kembalikan posisi ke wish TERBARU */
+requestAnimationFrame(() => {
+  wishesScroll.scrollLeft = 0;
+});
+
+/* Reset form */
+guestName.value = "";
+guestWish.value = "";
+guestCount.value = "1";
+
+selectedAttendance = "";
+
+attendanceButtons.forEach(btn => {
+  btn.classList.remove("active");
+});
+
+attendanceRow.classList.remove("show-count");
+
+/* Toast */
+showToast(
+  "Yeay! Wish kamu sudah terkirim 💛"
+);
+
+  });
+
+
+  /* =====================================================
+     LOAD
+  ===================================================== */
+
+  renderWishes();
+
+</script>
+
+</body>
+</html>
