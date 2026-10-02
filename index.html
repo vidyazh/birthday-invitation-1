@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=402, initial-scale=1.0">
   <title>Undangan Isyatir</title>
@@ -142,7 +145,6 @@
 
     .section-6 {
       width: 402px;
-      margin-top: 24px;
       position: relative;
       z-index: 4;
       overflow: hidden;
@@ -154,7 +156,7 @@
       height: auto;
     }
 
-    /* =====================================================
+/* =====================================================
    SECTION 7 - RSVP + WISH
 ===================================================== */
 
@@ -163,6 +165,86 @@
   padding: 28px 19px 45px;
   position: relative;
   background: #63d4fb;
+}
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown-section {
+  width: 402px;
+  padding: 8px 19px 24px;
+  margin-top: 8px;
+  position: relative;
+  z-index: 4;
+  text-align: center;
+}
+
+.countdown-title {
+  color: #fff7d8;
+
+  font-family: "Shantell Sans", cursive, sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+
+  margin-bottom: 10px;
+
+  text-shadow:
+    1px 2px 0 rgba(53, 135, 175, .45);
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+
+  width: 100%;
+}
+
+.countdown-item {
+  width: 78px;
+  min-height: 70px;
+
+  padding: 8px 4px;
+
+  border-radius: 15px;
+
+  background: linear-gradient(
+    180deg,
+    #fff7e4 0%,
+    #ffedc8 100%
+  );
+
+  box-shadow:
+    inset -1px 2px 8px rgba(255, 255, 255, .95),
+    inset 6px -10px 8px rgba(211, 169, 99, .25),
+    0 3px 6px rgba(47, 133, 166, .2);
+}
+
+.countdown-number {
+  display: block;
+
+  color: #176ea0;
+
+  font-family: "Shantell Sans", cursive, sans-serif;
+  font-size: 23px;
+  font-weight: 900;
+
+  line-height: 1.1;
+}
+
+.countdown-label {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #765f42;
+
+  font-family: "Shantell Sans", cursive, sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+
+  text-transform: uppercase;
 }
 
 
@@ -217,7 +299,7 @@
 
   text-align: center;
 
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Shantell Sans", cursive, sans-serif;
   font-size: 19px;
   font-weight: 900;
 
@@ -235,7 +317,7 @@
 
   color: #fff5ce;
 
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Shantell Sans", cursive, sans-serif;
   font-size: 12px;
   font-weight: 700;
 
@@ -254,7 +336,7 @@
 
   color: #57350d;
 
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Shantell Sans", cursive, sans-serif;
   font-size: 14px;
   font-weight: 900;
 
@@ -280,7 +362,7 @@
 
   color: #59452e;
 
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Shantell Sans", cursive, sans-serif;
   font-size: 14px;
   font-weight: 700;
 
@@ -326,7 +408,7 @@
 
 
 /* =====================================================
-   AREA JUMLAH TAMU + DATENG KAN
+   AREA JUMLAH TAMU + DATANG KAN
 ===================================================== */
 
 .attendance-row {
@@ -415,7 +497,7 @@
 
 /*
    Ketika jumlah tamu muncul,
-   area dateng kan otomatis terdorong
+   area datang kan otomatis terdorong
    ke kanan karena flex layout.
 */
 
@@ -448,7 +530,7 @@
 
   border-radius: 12px;
 
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Shantell Sans", cursive, sans-serif;
   font-size: 13px;
   font-weight: 900;
 
@@ -520,7 +602,7 @@
 
   color: #563e32;
 
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Shantell Sans", cursive, sans-serif;
   font-size: 17px;
   font-weight: 900;
 
@@ -565,8 +647,8 @@
 
   color: #fff7d8;
 
-  font-family: "Trebuchet MS", sans-serif;
-  font-size: 21px;
+  font-family: "Shantell Sans", cursive, sans-serif;
+  font-size: 19px;
   font-weight: 900;
 
   text-shadow:
@@ -582,7 +664,7 @@
 
   color: #247fa9;
 
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Shantell Sans", cursive, sans-serif;
   font-size: 12px;
   font-weight: 700;
 }
@@ -662,7 +744,7 @@
 
   color: #176ea0;
 
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Shantell Sans", cursive, sans-serif;
   font-size: 15px;
   font-weight: 900;
 
@@ -684,7 +766,7 @@
 
   color: #66501e;
 
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Shantell Sans", cursive, sans-serif;
   font-size: 9px;
   font-weight: 900;
 }
@@ -696,7 +778,7 @@
 
   color: #66543d;
 
-  font-family: "Trebuchet MS", sans-serif;
+ font-family: "Shantell Sans", cursive, sans-serif;
   font-size: 13px;
   font-weight: 600;
 
@@ -726,7 +808,7 @@
 
   text-align: center;
 
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Shantell Sans", cursive, sans-serif;
   font-size: 12px;
   font-weight: 700;
 
@@ -759,7 +841,7 @@
 
   text-align: center;
 
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Shantell Sans", cursive, sans-serif;
   font-size: 13px;
   font-weight: 900;
 
@@ -819,6 +901,75 @@
       </section>
 
     </div>
+
+    <!-- COUNTDOWN -->
+
+<section class="countdown-section">
+
+  <div class="countdown-title">
+    Menuju Hari Spesial Isyatir 💛
+  </div>
+
+  <div class="countdown">
+
+    <div class="countdown-item">
+      <span
+        id="countDays"
+        class="countdown-number"
+      >
+        00
+      </span>
+
+      <span class="countdown-label">
+        Days
+      </span>
+    </div>
+
+
+    <div class="countdown-item">
+      <span
+        id="countHours"
+        class="countdown-number"
+      >
+        00
+      </span>
+
+      <span class="countdown-label">
+        Hours
+      </span>
+    </div>
+
+
+    <div class="countdown-item">
+      <span
+        id="countMinutes"
+        class="countdown-number"
+      >
+        00
+      </span>
+
+      <span class="countdown-label">
+        Minutes
+      </span>
+    </div>
+
+
+    <div class="countdown-item">
+      <span
+        id="countSeconds"
+        class="countdown-number"
+      >
+        00
+      </span>
+
+      <span class="countdown-label">
+        Seconds
+      </span>
+    </div>
+
+  </div>
+
+</section>
 
     <!-- SECTION 6 -->
     <section class="section-6">
@@ -885,11 +1036,11 @@
       </div>
 
 
-      <!-- DATENG KAN -->
+      <!-- DATANG KAN -->
       <div class="attendance-area">
 
         <label class="rsvp-label">
-          dateng kan?
+          datang kan?
         </label>
 
         <div class="attendance-buttons">
@@ -920,7 +1071,7 @@
     <!-- WISH -->
 
     <label class="rsvp-label wish-label">
-      Tulis wish buat Isyatir 💌
+      Ucapan buat Isyatir 💌
     </label>
 
     <textarea
@@ -949,7 +1100,7 @@
   <div class="wishes-section">
 
     <div class="wishes-title">
-      Wishes for Isyatir 💛
+      Doa dan ucapan untuk Isyatir 💛
     </div>
 
     <div class="wishes-subtitle">
@@ -982,7 +1133,92 @@
 
 
   <script>
+/* =====================================================
+   COUNTDOWN
+   1 JUNI 2027 - 15:30
+===================================================== */
 
+const countdownTarget =
+  new Date("2027-06-01T15:30:00+08:00").getTime();
+
+
+function updateCountdown() {
+
+  const now =
+    new Date().getTime();
+
+  const difference =
+    countdownTarget - now;
+
+
+  /* Jika waktunya sudah lewat */
+
+  if (difference <= 0) {
+
+    document.getElementById("countDays").textContent = "00";
+    document.getElementById("countHours").textContent = "00";
+    document.getElementById("countMinutes").textContent = "00";
+    document.getElementById("countSeconds").textContent = "00";
+
+    return;
+
+  }
+
+
+  /* Hitung waktu */
+
+  const days =
+    Math.floor(
+      difference / (1000 * 60 * 60 * 24)
+    );
+
+  const hours =
+    Math.floor(
+      (difference / (1000 * 60 * 60)) % 24
+    );
+
+  const minutes =
+    Math.floor(
+      (difference / (1000 * 60)) % 60
+    );
+
+  const seconds =
+    Math.floor(
+      (difference / 1000) % 60
+    );
+
+
+  /* Tampilkan */
+
+  document.getElementById("countDays")
+    .textContent = String(days).padStart(2, "0");
+
+  document.getElementById("countHours")
+    .textContent = String(hours).padStart(2, "0");
+
+  document.getElementById("countMinutes")
+    .textContent = String(minutes).padStart(2, "0");
+
+  document.getElementById("countSeconds")
+    .textContent = String(seconds).padStart(2, "0");
+
+}
+
+
+/* Jalankan langsung */
+
+updateCountdown();
+
+
+/* Update setiap detik */
+
+setInterval(
+  updateCountdown,
+  1000
+);
+
+
+ 
   /* =====================================================
      STORAGE
   ===================================================== */
@@ -1270,7 +1506,7 @@
     if (!selectedAttendance) {
 
       showToast(
-        "Pilih dulu kamu dateng atau tidak yaa 💛"
+        "Pilih dulu kamu datang atau tidak yaa 💛"
       );
 
       return;
