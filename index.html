@@ -1131,99 +1131,99 @@
     class="rsvp-toast"
   ></div>
 
+  <!-- =====================================================
+     SUPABASE
+====================================================== -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <script>
-/* =====================================================
-   COUNTDOWN
-   1 JUNI 2027 - 15:30
-===================================================== */
+<script>
+  const SUPABASE_URL =
+    "https://semzxlelakqcyowmbatt.supabase.co";
 
-const countdownTarget =
-  new Date("2027-06-01T15:30:00+08:00").getTime();
+  const SUPABASE_KEY =
+    "sb_publishable_AbxPcMUNCytEVoPxF5VLVQ_CdMhXTqQ";
 
-
-function updateCountdown() {
-
-  const now =
-    new Date().getTime();
-
-  const difference =
-    countdownTarget - now;
-
-
-  /* Jika waktunya sudah lewat */
-
-  if (difference <= 0) {
-
-    document.getElementById("countDays").textContent = "00";
-    document.getElementById("countHours").textContent = "00";
-    document.getElementById("countMinutes").textContent = "00";
-    document.getElementById("countSeconds").textContent = "00";
-
-    return;
-
-  }
-
-
-  /* Hitung waktu */
-
-  const days =
-    Math.floor(
-      difference / (1000 * 60 * 60 * 24)
+  const supabaseClient =
+    window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
     );
-
-  const hours =
-    Math.floor(
-      (difference / (1000 * 60 * 60)) % 24
-    );
-
-  const minutes =
-    Math.floor(
-      (difference / (1000 * 60)) % 60
-    );
-
-  const seconds =
-    Math.floor(
-      (difference / 1000) % 60
-    );
+</script>
 
 
-  /* Tampilkan */
+<!-- =====================================================
+     SCRIPT RSVP / COUNTDOWN / WISH
+====================================================== -->
+<script>
 
-  document.getElementById("countDays")
-    .textContent = String(days).padStart(2, "0");
-
-  document.getElementById("countHours")
-    .textContent = String(hours).padStart(2, "0");
-
-  document.getElementById("countMinutes")
-    .textContent = String(minutes).padStart(2, "0");
-
-  document.getElementById("countSeconds")
-    .textContent = String(seconds).padStart(2, "0");
-
-}
-
-
-/* Jalankan langsung */
-
-updateCountdown();
-
-
-/* Update setiap detik */
-
-setInterval(
-  updateCountdown,
-  1000
-);
-
-
- 
   /* =====================================================
-     STORAGE
+     COUNTDOWN
   ===================================================== */
 
-  const STORAGE_KEY = "isyatir_rsvp_wishes";
+  const countdownTarget =
+    new Date("2027-06-01T15:30:00+08:00").getTime();
+
+  function updateCountdown() {
+
+    const now =
+      new Date().getTime();
+
+    const difference =
+      countdownTarget - now;
+
+    if (difference <= 0) {
+
+      document.getElementById("countDays").textContent = "00";
+      document.getElementById("countHours").textContent = "00";
+      document.getElementById("countMinutes").textContent = "00";
+      document.getElementById("countSeconds").textContent = "00";
+
+      return;
+    }
+
+    const days =
+      Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+      );
+
+    const hours =
+      Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+      );
+
+    const minutes =
+      Math.floor(
+        (difference / (1000 * 60)) % 60
+      );
+
+    const seconds =
+      Math.floor(
+        (difference / 1000) % 60
+      );
+
+    document.getElementById("countDays")
+      .textContent =
+      String(days).padStart(2, "0");
+
+    document.getElementById("countHours")
+      .textContent =
+      String(hours).padStart(2, "0");
+
+    document.getElementById("countMinutes")
+      .textContent =
+      String(minutes).padStart(2, "0");
+
+    document.getElementById("countSeconds")
+      .textContent =
+      String(seconds).padStart(2, "0");
+  }
+
+  updateCountdown();
+
+  setInterval(
+    updateCountdown,
+    1000
+  );
 
 
   /* =====================================================
@@ -1263,7 +1263,42 @@ setInterval(
 
 
   /* =====================================================
-     PILIH PASTI / MAAF
+     TOAST
+  ===================================================== */
+
+  function showToast(message) {
+
+    if (!rsvpToast) return;
+
+    rsvpToast.textContent = message;
+
+    rsvpToast.classList.add("show");
+
+    setTimeout(() => {
+
+      rsvpToast.classList.remove("show");
+
+    }, 2500);
+  }
+
+
+  /* =====================================================
+     ESCAPE HTML
+  ===================================================== */
+
+  function escapeHTML(text) {
+
+    return String(text ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+
+  /* =====================================================
+     PILIH KEHADIRAN
   ===================================================== */
 
   attendanceButtons.forEach(button => {
@@ -1273,23 +1308,14 @@ setInterval(
       selectedAttendance =
         button.dataset.value;
 
-
-      /* Hapus active dari semuanya */
-
       attendanceButtons.forEach(btn => {
+
         btn.classList.remove("active");
+
       });
-
-
-      /* Aktifkan pilihan */
 
       button.classList.add("active");
 
-
-      /*
-        Kalau PASTI:
-        tampilkan jumlah tamu
-      */
 
       if (selectedAttendance === "Pasti!") {
 
@@ -1297,15 +1323,7 @@ setInterval(
           "show-count"
         );
 
-      }
-
-
-      /*
-        Kalau MAAF:
-        sembunyikan jumlah tamu lagi
-      */
-
-      else {
+      } else {
 
         attendanceRow.classList.remove(
           "show-count"
@@ -1319,290 +1337,340 @@ setInterval(
 
 
   /* =====================================================
-     TOAST
+     RENDER WISHES DARI SUPABASE
   ===================================================== */
 
-  function showToast(message) {
+  async function renderWishes() {
 
-    rsvpToast.textContent = message;
+    const {
+      data,
+      error
+    } = await supabaseClient
 
-    rsvpToast.classList.add("show");
+      .from("wishes")
 
-    setTimeout(() => {
+      .select("*")
 
-      rsvpToast.classList.remove("show");
-
-    }, 2500);
-
-  }
+      .order("created_at", {
+        ascending: false
+      });
 
 
-  /* =====================================================
-     GET DATA
-  ===================================================== */
+    /* Jika Supabase error */
 
-  function getWishes() {
+    if (error) {
 
-    try {
+      console.error(
+        "Gagal mengambil wishes:",
+        error
+      );
 
-      const data =
-        localStorage.getItem(STORAGE_KEY);
+      wishesScroll.innerHTML = `
+        <div class="empty-wishes">
+          Belum bisa memuat ucapan 💛
+        </div>
+      `;
 
-      if (!data) {
-        return [];
-      }
-
-      return JSON.parse(data);
-
-    } catch (error) {
-
-      console.error(error);
-
-      return [];
-
+      return;
     }
 
-  }
 
-
-  /* =====================================================
-     SAVE DATA
-  ===================================================== */
-
-  function saveWishes(data) {
-
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(data)
-    );
-
-  }
-
-
-  /* =====================================================
-     ESCAPE HTML
-  ===================================================== */
-
-  function escapeHTML(text) {
-
-    return String(text)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-
-  }
-
-
-  /* =====================================================
-     RENDER WISH
-  ===================================================== */
-
-  function renderWishes() {
-
-    const wishes =
-      getWishes();
+    /* Kosongkan container */
 
     wishesScroll.innerHTML = "";
 
 
-    if (wishes.length === 0) {
+    /* Jika belum ada wish */
+
+    if (!data || data.length === 0) {
 
       wishesScroll.innerHTML = `
-
         <div class="empty-wishes">
-
           Belum ada ucapan nih 💌<br>
-
           Jadilah yang pertama mengirim
           wish untuk Isyatir!
+        </div>
+      `;
 
+      return;
+    }
+
+
+    /* Render semua wish */
+
+    data.forEach(wish => {
+
+      const card =
+        document.createElement("div");
+
+      card.className =
+        "wish-card";
+
+
+      card.innerHTML = `
+
+        <div class="wish-name">
+          ${escapeHTML(wish.name)}
+        </div>
+
+
+        ${
+          wish.attendance === "Pasti!"
+            ? `
+              <div class="wish-attendance">
+                ${escapeHTML(wish.guest_count)}
+                tamu
+              </div>
+            `
+            : `
+              <div class="wish-attendance">
+                Tidak hadir
+              </div>
+            `
+        }
+
+
+        <div class="wish-message">
+          ${escapeHTML(wish.message)}
         </div>
 
       `;
 
-      return;
 
-    }
+      wishesScroll.appendChild(card);
 
-
-    wishes
-      .slice()
-      .reverse()
-      .forEach(wish => {
-
-        const card =
-          document.createElement("div");
-
-        card.className =
-          "wish-card";
-
-
-        card.innerHTML = `
-
-          <div class="wish-name">
-            ${escapeHTML(wish.name)}
-          </div>
-
-          ${
-            wish.attendance === "Pasti!"
-              ? `
-                <div class="wish-attendance">
-                  ${escapeHTML(wish.count)} tamu
-                </div>
-              `
-              : `
-                <div class="wish-not-attend">
-                  Tidak hadir
-                </div>
-              `
-          }
-
-          <div class="wish-message">
-            ${escapeHTML(wish.message)}
-          </div>
-
-        `;
-
-
-        wishesScroll.appendChild(card);
-
-      });
+    });
 
   }
 
 
   /* =====================================================
-     SUBMIT
+     SUBMIT RSVP KE SUPABASE
   ===================================================== */
 
-  sendRsvp.addEventListener("click", () => {
+  sendRsvp.addEventListener(
+    "click",
+    async () => {
 
-    const name =
-      guestName.value.trim();
+      const name =
+        guestName.value.trim();
 
-    const message =
-      guestWish.value.trim();
+      const message =
+        guestWish.value.trim();
 
 
-    /* Nama wajib */
+      /* =========================
+         VALIDASI NAMA
+      ========================= */
 
-    if (!name) {
+      if (!name) {
 
-      showToast(
-        "Isi nama kamu dulu yaa 💛"
-      );
+        showToast(
+          "Isi nama kamu dulu yaa 💛"
+        );
 
-      guestName.focus();
+        guestName.focus();
 
-      return;
+        return;
+      }
+
+
+      /* =========================
+         VALIDASI KEHADIRAN
+      ========================= */
+
+      if (!selectedAttendance) {
+
+        showToast(
+          "Pilih dulu kamu datang atau tidak yaa 💛"
+        );
+
+        return;
+      }
+
+
+      /* =========================
+         VALIDASI WISH
+      ========================= */
+
+      if (!message) {
+
+        showToast(
+          "Tulis wish untuk Isyatir dulu 💌"
+        );
+
+        guestWish.focus();
+
+        return;
+      }
+
+
+      /* =========================
+         JUMLAH TAMU
+      ========================= */
+
+      const count =
+        selectedAttendance === "Pasti!"
+          ? parseInt(guestCount.value) || 1
+          : 0;
+
+
+      /* =========================
+         DISABLE BUTTON
+      ========================= */
+
+      sendRsvp.disabled = true;
+
+      sendRsvp.textContent =
+        "Sending...";
+
+
+      try {
+
+        /* =========================
+           INSERT KE SUPABASE
+        ========================= */
+
+        const {
+          data,
+          error
+        } = await supabaseClient
+
+          .from("wishes")
+
+          .insert({
+
+            name: name,
+
+            attendance:
+              selectedAttendance,
+
+            guest_count:
+              count,
+
+            message:
+              message
+
+          })
+
+          .select();
+
+
+        /* =========================
+           JIKA SUPABASE ERROR
+        ========================= */
+
+        if (error) {
+
+          console.error(
+            "Supabase error:",
+            error
+          );
+
+          showToast(
+            "Waduh, wish belum terkirim 😭"
+          );
+
+          sendRsvp.disabled = false;
+
+          sendRsvp.textContent =
+            "Send my RSVP";
+
+          return;
+        }
+
+
+        /* =========================
+           BERHASIL
+        ========================= */
+
+        console.log(
+          "RSVP berhasil:",
+          data
+        );
+
+
+        /* Ambil ulang data dari Supabase */
+
+        await renderWishes();
+
+
+        /* Kembali ke wish terbaru */
+
+        requestAnimationFrame(() => {
+
+          wishesScroll.scrollLeft = 0;
+
+        });
+
+
+        /* =========================
+           RESET FORM
+        ========================= */
+
+        guestName.value = "";
+
+        guestWish.value = "";
+
+        guestCount.value = "1";
+
+        selectedAttendance = "";
+
+
+        attendanceButtons.forEach(btn => {
+
+          btn.classList.remove("active");
+
+        });
+
+
+        attendanceRow.classList.remove(
+          "show-count"
+        );
+
+
+        /* =========================
+           BUTTON NORMAL
+        ========================= */
+
+        sendRsvp.disabled = false;
+
+        sendRsvp.textContent =
+          "Send my RSVP";
+
+
+        /* =========================
+           SUCCESS
+        ========================= */
+
+        showToast(
+          "Yeay! Wish kamu sudah terkirim 💛"
+        );
+
+      } catch (error) {
+
+        console.error(
+          "Unexpected error:",
+          error
+        );
+
+        showToast(
+          "Terjadi kesalahan. Coba lagi yaa 😭"
+        );
+
+        sendRsvp.disabled = false;
+
+        sendRsvp.textContent =
+          "Send my RSVP";
+
+      }
 
     }
-
-
-    /* Kehadiran wajib dipilih */
-
-    if (!selectedAttendance) {
-
-      showToast(
-        "Pilih dulu kamu datang atau tidak yaa 💛"
-      );
-
-      return;
-
-    }
-
-
-    /* Wish wajib */
-
-    if (!message) {
-
-      showToast(
-        "Tulis wish untuk Isyatir dulu 💌"
-      );
-
-      guestWish.focus();
-
-      return;
-
-    }
-
-
-    /*
-      Kalau Pasti → gunakan jumlah tamu
-      Kalau Maaf → jumlah tamu = 0
-    */
-
-    const count =
-      selectedAttendance === "Pasti!"
-        ? parseInt(guestCount.value) || 1
-        : 0;
-
-
-    /* Data */
-
-    const newWish = {
-
-      id: Date.now(),
-
-      name: name,
-
-      count: count,
-
-      attendance:
-        selectedAttendance,
-
-      message: message
-
-    };
-
-
-    /* Ambil data */
-
-    const wishes =
-      getWishes();
-
-
-    /* Tambahkan */
-
-    wishes.push(newWish);
-
-
-    /* Simpan */
-saveWishes(wishes);
-
-/* Render wish terbaru */
-renderWishes();
-
-/* Kembalikan posisi ke wish TERBARU */
-requestAnimationFrame(() => {
-  wishesScroll.scrollLeft = 0;
-});
-
-/* Reset form */
-guestName.value = "";
-guestWish.value = "";
-guestCount.value = "1";
-
-selectedAttendance = "";
-
-attendanceButtons.forEach(btn => {
-  btn.classList.remove("active");
-});
-
-attendanceRow.classList.remove("show-count");
-
-/* Toast */
-showToast(
-  "Yeay! Wish kamu sudah terkirim 💛"
-);
-
-  });
+  );
 
 
   /* =====================================================
-     LOAD
+     LOAD WISHES SAAT HALAMAN DIBUKA
   ===================================================== */
 
   renderWishes();
