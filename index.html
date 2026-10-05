@@ -36,6 +36,90 @@
     }
 
     /* =====================================================
+   PAGE LOADING
+===================================================== */
+
+.page-loader {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background: #63d4fb;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 99999;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
+}
+
+.page-loader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.page-loader-content {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+}
+
+.page-loader-text {
+  font-family: inherit;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  color: #ffffff;
+
+  text-align: center;
+}
+
+.loader-spinner {
+  width: 30px;
+  height: 30px;
+
+  border: 4px solid rgba(255, 255, 255, 0.35);
+
+  border-top-color: #ffffff;
+
+  border-radius: 50%;
+
+  animation:
+    loaderSpin 0.8s linear infinite;
+}
+
+@keyframes loaderSpin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+    /* =====================================================
        SECTION 1
     ===================================================== */
 
@@ -639,6 +723,64 @@
   text-align: center;
 }
 
+/* =====================================================
+   WISHES LOADING
+===================================================== */
+
+.wishes-loader {
+
+  width: 100%;
+
+  min-height: 100px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+}
+
+.wishes-loader.hide {
+  display: none;
+}
+
+.wishes-loader-spinner {
+
+  width: 18px;
+  height: 18px;
+
+  border: 3px solid rgba(255, 255, 255, 0.35);
+
+  border-top-color: #ffffff;
+
+  border-radius: 50%;
+
+  animation:
+    wishesLoaderSpin 0.75s linear infinite;
+
+}
+
+@keyframes wishesLoaderSpin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
 
 .wishes-title {
   width: 100%;
@@ -836,6 +978,77 @@
     inset 5px -8px 8px rgba(192, 143, 74, .18);
 }
 
+/* =====================================================
+   DOKUMENTASI ACARA
+===================================================== */
+
+.documentation-button {
+
+  width: 100%;
+
+  height: 57px;
+
+  margin-top: 0px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  background: linear-gradient(
+    180deg,
+    #a5ff25 0%,
+    #8cec0b 100%
+  );
+
+  color: #563e32;
+
+  font-family: "Shantell Sans", cursive, sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  box-shadow:
+    inset -1px 2px 8px rgba(224, 255, 147, .95),
+    inset 6px -10px 8px rgba(73, 174, 0, .30),
+    0 3px 4px rgba(176, 98, 0, .2);
+
+  transition:
+    transform .15s ease,
+    filter .15s ease;
+}
+
+.documentation-button:active {
+
+  transform: scale(0.98);
+
+}
+
+.documentation-button:hover {
+
+  opacity: 0.92;
+
+}
+
+.documentation-icon {
+  font-size: 26px;
+  line-height: 1;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-3px);
+}
+
 
 /* =====================================================
    TOAST
@@ -891,6 +1104,24 @@
 </head>
 
 <body>
+
+  <!-- =====================================================
+     PAGE LOADING
+====================================================== -->
+
+<div id="pageLoader" class="page-loader">
+
+  <div class="page-loader-content">
+
+    <div class="loader-spinner"></div>
+
+    <div class="page-loader-text">
+      Memuat undangan...
+    </div>
+
+  </div>
+
+</div>
 
   <main class="website">
 
@@ -1116,22 +1347,56 @@
 
   <!-- DAFTAR WISH -->
 
-  <div class="wishes-section">
+  <!-- =====================================================
+     WISHES
+===================================================== -->
 
-    <div class="wishes-title">
-      Doa dan ucapan untuk Isyatir 💛
-    </div>
+<div class="wishes-section">
 
-    <div class="wishes-subtitle">
-      Geser untuk membaca ucapan dari teman-teman
-    </div>
+  <div class="wishes-title">
+    Wishes for Isyatir 💛
+  </div>
 
-    <div
-      id="wishesScroll"
-      class="wishes-scroll"
-    ></div>
+  <div class="wishes-subtitle">
+    Geser untuk membaca ucapan dari teman-teman
+  </div>
+
+
+  <!-- LOADING WISHES -->
+
+  <div
+    id="wishesLoader"
+    class="wishes-loader"
+  >
+
+    <div class="wishes-loader-spinner"></div>
+
+    <span>
+      Memuat ucapan...
+    </span>
 
   </div>
+
+
+  <!-- WISHES -->
+
+  <div
+    id="wishesScroll"
+    class="wishes-scroll"
+  ></div>
+
+
+  <!-- DOKUMENTASI -->
+
+  <button
+    id="documentationButton"
+    class="documentation-button"
+    type="button"
+  >
+    <span class="documentation-icon">📷</span> Dokumentasi Acara
+  </button>
+
+</div>
 
 </section>
 
@@ -1171,9 +1436,28 @@
 
 
 <!-- =====================================================
-     SCRIPT RSVP / COUNTDOWN / WISH
+     SCRIPT PAGE LOADER / RSVP / COUNTDOWN / WISH
 ====================================================== -->
 <script>
+  
+  /* =====================================================
+   PAGE LOADER
+===================================================== */
+
+window.addEventListener("load", () => {
+
+  const pageLoader =
+    document.getElementById("pageLoader");
+
+  if (!pageLoader) return;
+
+  setTimeout(() => {
+
+    pageLoader.classList.add("hide");
+
+  }, 500);
+
+});
 
   /* =====================================================
      COUNTDOWN
@@ -1356,10 +1640,30 @@
 
 
   /* =====================================================
-     RENDER WISHES DARI SUPABASE
-  ===================================================== */
+   RENDER WISHES DARI SUPABASE
+===================================================== */
 
-  async function renderWishes() {
+async function renderWishes() {
+
+  const wishesLoader =
+    document.getElementById("wishesLoader");
+
+
+  /* Tampilkan loading */
+
+  if (wishesLoader) {
+
+    wishesLoader.classList.remove("hide");
+
+  }
+
+
+  /* Kosongkan wishes sementara */
+
+  wishesScroll.innerHTML = "";
+
+
+  try {
 
     const {
       data,
@@ -1375,7 +1679,9 @@
       });
 
 
-    /* Jika Supabase error */
+    /* =========================
+       SUPABASE ERROR
+    ========================= */
 
     if (error) {
 
@@ -1391,15 +1697,13 @@
       `;
 
       return;
+
     }
 
 
-    /* Kosongkan container */
-
-    wishesScroll.innerHTML = "";
-
-
-    /* Jika belum ada wish */
+    /* =========================
+       BELUM ADA WISH
+    ========================= */
 
     if (!data || data.length === 0) {
 
@@ -1412,15 +1716,19 @@
       `;
 
       return;
+
     }
 
 
-    /* Render semua wish */
+    /* =========================
+       RENDER WISH
+    ========================= */
 
     data.forEach(wish => {
 
       const card =
         document.createElement("div");
+
 
       card.className =
         "wish-card";
@@ -1432,7 +1740,6 @@
           ${escapeHTML(wish.name)}
         </div>
 
-
         ${
           wish.attendance === "Pasti!"
             ? `
@@ -1442,12 +1749,11 @@
               </div>
             `
             : `
-              <div class="wish-not-attend">
+              <div class="wish-attendance">
                 Tidak hadir
               </div>
             `
         }
-
 
         <div class="wish-message">
           ${escapeHTML(wish.message)}
@@ -1460,8 +1766,36 @@
 
     });
 
+
+  } catch (error) {
+
+    console.error(
+      "Unexpected wishes error:",
+      error
+    );
+
+    wishesScroll.innerHTML = `
+      <div class="empty-wishes">
+        Belum bisa memuat ucapan 💛
+      </div>
+    `;
+
+
+  } finally {
+
+    /* =========================
+       SEMBUNYIKAN LOADING
+    ========================= */
+
+    if (wishesLoader) {
+
+      wishesLoader.classList.add("hide");
+
+    }
+
   }
 
+}
 
   /* =====================================================
      SUBMIT RSVP KE SUPABASE
@@ -1687,6 +2021,30 @@
     }
   );
 
+  /* =====================================================
+   DOKUMENTASI ACARA
+===================================================== */
+
+const documentationButton =
+  document.getElementById(
+    "documentationButton"
+  );
+
+
+if (documentationButton) {
+
+  documentationButton.addEventListener(
+    "click",
+    () => {
+
+      showToast(
+        "Foto acara belum ada"
+      );
+
+    }
+  );
+
+}
 
   /* =====================================================
      LOAD WISHES SAAT HALAMAN DIBUKA
